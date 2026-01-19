@@ -1,0 +1,32 @@
+name: Deploy to GitHub Pages
+on:
+  # 当推送到main分支时触发
+  push:
+    branches: [main]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 拉取代码
+      - name: Checkout code
+        uses: actions/checkout@v4
+      # 安装Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      # 安装依赖
+      - name: Install dependencies
+        run: npm install
+      # 打包项目
+      - name: Build project
+        run: npm run build
+      # 部署到GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          # GitHub自动生成的令牌，无需手动配置
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # 打包后的目录（Vue是dist，React是build）
+          publish_dir: ./dist
