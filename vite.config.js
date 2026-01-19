@@ -7,5 +7,5 @@ export default defineConfig({
     port: 5173,
     host: true
   },
-  base: process.env.NODE_ENV === 'production' ? '/ztr-ai-pub/' : '/'
+  base: process.env.NODE_ENV === 'production' ? '/ztr-ai-pub/dist/' : '/'
 })
