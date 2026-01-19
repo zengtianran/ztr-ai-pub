@@ -30,7 +30,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # 打包后的目录（Vue是dist，React是build）
           publish_dir: ./dist
-          # 部署到 main 分支
-          destination_branch: main
-          # 部署到 dist 目录
-          destination_dir: dist
