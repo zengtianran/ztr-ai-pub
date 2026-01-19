@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 on:
   # 当推送到main分支时触发
   push:
-    branches: [main]
+    branches: ['main']
 jobs:
   deploy:
     runs-on: ubuntu-latest
